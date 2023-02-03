@@ -105,3 +105,6 @@ dist
 
 # VS Code
 .vs-code
+
+# ESLint
+.eslintrc
