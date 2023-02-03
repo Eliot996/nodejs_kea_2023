@@ -19,6 +19,6 @@ const number = 1;
 // Add the year plus the number
 // The result should be 2020
 // You cannot touch line 1 or 2
-console.log(`${Number.parseInt(year) + number}`);
+console.log(`${parseInt(year) + number}`);
 
 // --------------------------------------
