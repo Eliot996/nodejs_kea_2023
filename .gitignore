@@ -107,4 +107,4 @@ dist
 .vs-code
 
 # ESLint
-.eslintrc
+.eslintrc.json
