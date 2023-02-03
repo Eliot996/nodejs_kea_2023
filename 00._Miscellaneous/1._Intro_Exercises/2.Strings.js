@@ -51,6 +51,7 @@ const fact = "You are learning javascript!";
 
 // capitalize the J in Javascript 18
 result = fact.slice(0,17) + fact.charAt(17).toUpperCase() + fact.slice(18)
+
 console.log(result);
 
 // --------------------------------------
