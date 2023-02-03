@@ -1,21 +1,27 @@
-// You have to assign to a value when declaring a const
-// const me
+// Const Rule 1: Have to assign a value when declaring.  
+// const me;
 
-const me  = {
-    // key: value -> key-value pairs
-    name: "hans"
-}
+const me = {
+    /* key: value 
+    === key-value pairs
+    */
+   name: "Hans"
+};
+const hobbies = ["Football", "Swimming"];
+hobbies.push("Cooking");
+me.hobbies = hobbies;
 
-// Cannot reassign to const
-// me = {} 
 
-// But it is not immutable
-me.name = "Cam"
+// Const Rule 2: Cannot reassign to constant
+// me = {};
+me.name = "Johannes";
 
-console.log(me)
+
+
+console.log(me);
 
 
 const hobbyOne = "Football skill level: '6'";
 const hobbyTwo = 'Swimming skill level: "3"';
-const hobbtThree = `Cooking skill level: ${2 + 2}`; // string interpolation - string template literal, can use js inside of a string
-
+const hobbyThree = `Cooking skill level: "'${2 + 2}"'`;
+console.log(hobbyThree);
