@@ -6,7 +6,7 @@ const numberTwo = "2.30";
 
 // add those two numbers and show the result
 // you cannot touch line 1 neither line 2
-let result = Number(numberOne) + Number(numberTwo)
+let result = Number(numberOne) + Number(numberTwo);
 console.log(result);
 
 // --------------------------------------
@@ -18,7 +18,7 @@ const anotherNumberOne = "1.10";
 const anotherNumberTwo = "2.30";
 
 // --------------------------------------
-result = Number(anotherNumberOne) + Number(anotherNumberTwo)
+result = Number(anotherNumberOne) + Number(anotherNumberTwo);
 console.log(result.toFixed(2));
 
 // --------------------------------------
@@ -29,7 +29,7 @@ const two = 45;
 const three = 98;
 
 // Show in the console the avg. with 5 decimals
-result = (one + two + three) / 3
+result = (one + two + three) / 3;
 
 console.log(result.toFixed(5));
 
@@ -50,7 +50,7 @@ console.log(result);
 const fact = "You are learning javascript!";
 
 // capitalize the J in Javascript 18
-result = fact.slice(0,17) + fact.charAt(17).toUpperCase() + fact.slice(18)
+result = fact.slice(0,17) + fact.charAt(17).toUpperCase() + fact.slice(18);
 
 console.log(result);
 
