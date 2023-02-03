@@ -17,7 +17,7 @@ const year = "2022";
 const number = 1;
 
 // Add the year plus the number
-// The result should be 2020
+// The result should be 2023
 // You cannot touch line 1 or 2
 console.log(`${parseInt(year) + number}`);
 
