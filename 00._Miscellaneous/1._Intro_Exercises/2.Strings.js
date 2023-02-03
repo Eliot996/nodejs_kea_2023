@@ -39,7 +39,7 @@ console.log(result.toFixed(5));
 const letters = "abc";
 // Get me the character "c"
 
-result = letters[2];
+result = letters.charAt(2);
 
 console.log(result);
 
@@ -50,7 +50,8 @@ console.log(result);
 const fact = "You are learning javascript!";
 
 // capitalize the J in Javascript 18
-result = fact.slice(0,17) + fact.charAt(17).toUpperCase() + fact.slice(18);
+result = fact.slice(0, 17) + fact.charAt(17).toUpperCase() + fact.slice(18);
+result = fact.replace("j", "J")
 
 console.log(result);
 
