@@ -13,7 +13,7 @@ console.log(`My first name is ${firstName} and my last name is ${lastName}`);
 // --------------------------------------
 // Exercise 2 - Numbers and Strings
 
-const year = "2021";
+const year = "2022";
 const number = 1;
 
 // Add the year plus the number
