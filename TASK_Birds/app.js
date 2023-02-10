@@ -4,7 +4,8 @@ const app = express();
 app.use(express.json());
 
 const birds = [
-    {name: "sparrow"}, 
+    {name: "falcon"}, 
+    {name: "owl"},  
     {name: "hawk"},  
 ];
 
