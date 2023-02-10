@@ -1,4 +1,7 @@
-const app = require('express')(); // import and init
+const express = require('express');
+const app = express(); // import and init
+
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send({ message: 'Hello, World' });
@@ -29,6 +32,11 @@ app.get("/bat", (req, res) => {
 
 app.get("/bottle/:bottleSize", (req, res) => {
     res.send({ bottleSize: req.params.bottleSize})
+});
+
+app.post("/package", (req,res) => {
+    console.log(req.body);
+    res.send({message: req.body});
 });
 
 app.listen(8080);
