@@ -23,4 +23,12 @@ app.get('/about', (req, res) => res.send(`
     `)
 );
 
+app.get("/bat", (req, res) => {
+    res.send({ message: `The bat is ${req.query.adjective}`})
+});
+
+app.get("/bottle/:bottleSize", (req, res) => {
+    res.send({ bottleSize: req.params.bottleSize})
+});
+
 app.listen(8080);
