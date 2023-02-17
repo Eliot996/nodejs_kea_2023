@@ -17,7 +17,7 @@ app.get('/spinthebicycle', (req, res) => {
 
 
 app.get('/kickthedinosaur', (req, res) => {
-    res.send({ message: 'The dinosaur says: "ow ow ow"' })
+    res.send({ message: "The dinosaur says: 'ow ow ow'" });
 });
 
 app.get('/about', (req, res) => res.send(`
