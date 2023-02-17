@@ -18,6 +18,8 @@ console.log("");
 console.log("");
 console.log("Even rocks: ");
 
-const evenAgedRocks = rocks.filter(( rock => rock.age % 2 === 0)).map(rock => Object.assign({}, rock));
+const evenAgedRocks = rocks
+    .filter(( rock => rock.age % 2 === 0))
+    .map(rock => Object.assign({}, rock));
 
 console.log(evenAgedRocks);
