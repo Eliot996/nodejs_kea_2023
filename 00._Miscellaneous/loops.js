@@ -5,11 +5,8 @@ const rocks = [
     { name: "Neptune", age: 100_000_000_000},
 ]
 
-const rocksAgedOneYear = rocks.map(rock => {
-    const newRock = Object.assign({}, rock);
-    newRock.age += 1; 
-    return newRock
-})
+console.log("Aged rocks: ");
+const rocksAgedOneYear = rocks.map(rock => ({...rock, age: rock.age+1}))
 
 console.log(rocks);
 console.log(rocksAgedOneYear);
@@ -20,6 +17,7 @@ console.log("Even rocks: ");
 
 const evenAgedRocks = rocks
     .filter(( rock => rock.age % 2 === 0))
-    .map(rock => Object.assign({}, rock));
+    .map(rock => ({...rock}));
 
 console.log(evenAgedRocks);
+console.log(rocks);
