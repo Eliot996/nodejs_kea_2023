@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.get("/", (req, res) => {
-    res.send()
+    res.sendFile(__dirname + "/frontpage.html");
 });
 
 const PORT = 8080;
