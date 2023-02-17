@@ -11,8 +11,7 @@ const rocksAgedOneYear = rocks.map(rock => ({...rock, age: rock.age+1}))
 console.log(rocks);
 console.log(rocksAgedOneYear);
 
-console.log("");
-console.log("");
+console.log();
 console.log("Even rocks: ");
 
 const evenAgedRocks = rocks
