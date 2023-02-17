@@ -4,9 +4,9 @@ const app = express();
 app.use(express.json());
 
 const birds = [
-    {name: "falcon"}, 
-    {name: "owl"},  
-    {name: "hawk"},  
+    {id: 1, name: "falcon"}, 
+    {id: 2, name: "owl"},  
+    {id: 3, name: "hawk"},  
 ];
 
 app.get('/birds', (req, res) => {
