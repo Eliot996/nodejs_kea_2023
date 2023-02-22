@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.json());
 
-const birds = [
+let birds = [
     {
         id: 1,
         name: "Violet-backed starling",
@@ -26,7 +26,7 @@ app.get("/birds/:id", (req, res) => {
 app.post("/birds", (req, res) => {
     const maxId = birds.reduce(
         (accumulator, bird) => ((bird.id > accumulator) ? bird.id : accumulator),
-        1,
+        0,
     );
 
     req.body.id = maxId + 1;
@@ -34,6 +34,26 @@ app.post("/birds", (req, res) => {
     birds.push(req.body);
 
     res.send({ message: birds[birds.length - 1] });
+});
+
+app.patch("/birds/:id", (req, res) => {
+    const id = Number(req.params.id);
+    const birdToChange = birds.find((bird) => bird.id === id);
+
+    birdToChange.name = req.body.name;
+    birdToChange.maleRating = req.body.maleRating;
+    birdToChange.femaleRating = req.body.femaleRating;
+
+    res.send({ message: birdToChange });
+});
+
+app.delete("/birds/:id", (req, res) => {
+    const id = Number(req.params.id);
+    const foundBird = birds.find((bird) => bird.id === id);
+
+    birds = birds.filter((bird) => bird.id !== id);
+
+    res.send({ message: foundBird });
 });
 
 app.listen(8080, () => {
