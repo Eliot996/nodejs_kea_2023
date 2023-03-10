@@ -16,7 +16,7 @@ app.get("/IRLQuests", (req, res) => {
     res.sendFile(path.resolve("public/pages/IRLQuests/IRLQuests.html"));
 });
 
-app.get("/jokes", () => {
+app.get("/jokes", (req, res) => {
     res.sendFile(path.resolve("public/pages/jokes/jokes.html"))
 });
 
