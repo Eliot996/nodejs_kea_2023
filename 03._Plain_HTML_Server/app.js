@@ -12,6 +12,14 @@ app.get("/tanks", (req, res) => {
     res.sendFile(__dirname + "/public/tanks/tanks.html");
 });
 
+// server side redirection
+app.get("/api/guards", (req, res) => {
+    if (req.query.passport === "theskyisblue") {
+        return res.redirect("/api/tanks");
+    } 
+    res.send( { message: "You are not allowed to see the tanks. Give us the secret in the query string with the key being passport."} );
+});
+
 const PORT = 8080;
 app.listen(PORT, (error) => {
     if (error) {
