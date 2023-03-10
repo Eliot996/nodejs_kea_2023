@@ -1,1 +1,3 @@
-console.log("thank you for visiting");
+//console.log("thank you for visiting");
+
+setTimeout(() => { window.location.href = "/tanks" }, 3000)
