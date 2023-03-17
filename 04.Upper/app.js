@@ -17,7 +17,7 @@ const frontpage = fs.readFileSync("./public/pages/frontpage/frontpage.html").toS
 const IRLQuests = fs.readFileSync("./public/pages/IRLQuests/IRLQuests.html").toString();
 const jokes     = fs.readFileSync("./public/pages/jokes/jokes.html").toString();
 
-// constructed pages
+// Constructed pages
 const frontpagePage = navbar + frontpage + footer;
 const IRLQuestsPage = navbar + IRLQuests + footer;
 const jokesPage     = navbar + jokes     + footer;
