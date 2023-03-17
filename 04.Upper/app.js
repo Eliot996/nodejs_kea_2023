@@ -3,19 +3,22 @@ const app = express();
 app.use(express.static("public"));
 
 import path from "path";
-import renderPage from "./util/templateEngine.js"
+import templateEngine from "./util/templateEngine.js"
 import getJoke from "./util/jokes.js";
 
 
 // Pages
 const frontpagePath = "./public/pages/frontpage/frontpage.html";
-const frontpagePage = renderPage(frontpagePath, {tabTitle: "Welcome | Upper"});
+const frontpage = templateEngine.readPage(frontpagePath);
+const frontpagePage = templateEngine.renderPage(frontpage, {tabTitle: "Welcome | Upper"});
 
 const IRLQuestsPath = "./public/pages/IRLQuests/IRLQuests.html";
-const IRLQuestsPage = renderPage(IRLQuestsPath , {tabTitle: "IRLQuests | Upper"});
+const IRLQuests = templateEngine.readPage(IRLQuestsPath); 
+const IRLQuestsPage = templateEngine.renderPage(IRLQuests , {tabTitle: "IRLQuests | Upper"});
 
 const jokesPath     = "./public/pages/jokes/jokes.html";
-const jokesPage     = renderPage(jokesPath, {
+const jokes = templateEngine.readPage(jokesPath); 
+const jokesPage     = templateEngine.renderPage(jokes, {
     tabTitle: "Jokes  | Upper",
     cssLink: ` <link rel="stylesheet" href="/pages/jokes/jokes.css">`
 });
