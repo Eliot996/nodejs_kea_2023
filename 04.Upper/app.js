@@ -3,7 +3,7 @@ const app = express();
 
 import path from "path";
 
-import jokes from "./util/jokes.js";
+import getJoke from "./util/jokes.js";
 
 app.use(express.static("public"));
 
@@ -15,12 +15,12 @@ const footer = fs.readFileSync("./public/components/footer/footer.html").toStrin
 // Pages
 const frontpage = fs.readFileSync("./public/pages/frontpage/frontpage.html").toString();
 const IRLQuests = fs.readFileSync("./public/pages/IRLQuests/IRLQuests.html").toString();
-const jokesContent     = fs.readFileSync("./public/pages/jokes/jokes.html").toString();
+const jokes     = fs.readFileSync("./public/pages/jokes/jokes.html").toString();
 
 // constructed pages
 const frontpagePage = navbar + frontpage + footer;
 const IRLQuestsPage = navbar + IRLQuests + footer;
-const jokesPage = navbar + jokesContent + footer;
+const jokesPage     = navbar + jokes     + footer;
 
 
 app.get("/", (req, res) => {
