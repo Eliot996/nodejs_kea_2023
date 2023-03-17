@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express = require("express");
 
 const app = express();
@@ -18,6 +19,13 @@ app.get("/api/guards", (req, res) => {
         return res.redirect("/api/tanks");
     } 
     res.send( { message: "You are not allowed to see the tanks. Give us the secret in the query string with the key being passport."} );
+});
+
+// using the server as a proxy to return google.com
+app.get("/proxy", (req, res) => {
+    fetch("https://www.google.com")          // get the fetch
+        .then((response) => response.text()) // parse as text
+        .then((result) => res.send(result)); // send result as response
 });
 
 const PORT = 8080;
