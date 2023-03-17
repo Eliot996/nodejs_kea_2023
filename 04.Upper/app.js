@@ -16,12 +16,7 @@ const IRLQuestsPath = "./public/pages/IRLQuests/IRLQuests.html";
 const IRLQuests = templateEngine.readPage(IRLQuestsPath); 
 const IRLQuestsPage = templateEngine.renderPage(IRLQuests , {tabTitle: "IRLQuests | Upper"});
 
-const jokesPath     = "./public/pages/jokes/jokes.html";
-const jokes = templateEngine.readPage(jokesPath); 
-const jokesPage     = templateEngine.renderPage(jokes, {
-    tabTitle: "Jokes  | Upper",
-    cssLink: ` <link rel="stylesheet" href="/pages/jokes/jokes.css">`
-});
+
 
 app.get("/", (req, res) => {
     res.send(frontpagePage);
@@ -31,8 +26,8 @@ app.get("/IRLQuests", (req, res) => {
     res.send(IRLQuestsPage);
 });
 
-app.get("/jokes", (req, res) => {
-    res.send(jokesPage)
+app.get("/jokes", async (req, res) => {
+    res.send(await templateEngine.renderJokePage());
 });
 
 const PORT = 8080;
