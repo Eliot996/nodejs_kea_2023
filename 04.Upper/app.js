@@ -1,27 +1,24 @@
 import express from "express";
 const app = express();
-
-import path from "path";
-
-import getJoke from "./util/jokes.js";
-
 app.use(express.static("public"));
 
-import fs from "fs";
-// Components
-const navbar = fs.readFileSync("./public/components/navbar/navbar.html").toString();
-const footer = fs.readFileSync("./public/components/footer/footer.html").toString();
+import path from "path";
+import renderPage from "./util/templateEngine.js"
+import getJoke from "./util/jokes.js";
+
 
 // Pages
-const frontpage = fs.readFileSync("./public/pages/frontpage/frontpage.html").toString();
-const IRLQuests = fs.readFileSync("./public/pages/IRLQuests/IRLQuests.html").toString();
-const jokes     = fs.readFileSync("./public/pages/jokes/jokes.html").toString();
+const frontpagePath = "./public/pages/frontpage/frontpage.html";
+const frontpagePage = renderPage(frontpagePath, {tabTitle: "Welcome | Upper"});
 
-// Constructed pages
-const frontpagePage = navbar + frontpage + footer;
-const IRLQuestsPage = navbar + IRLQuests + footer;
-const jokesPage     = navbar + jokes     + footer;
+const IRLQuestsPath = "./public/pages/IRLQuests/IRLQuests.html";
+const IRLQuestsPage = renderPage(IRLQuestsPath , {tabTitle: "IRLQuests | Upper"});
 
+const jokesPath     = "./public/pages/jokes/jokes.html";
+const jokesPage     = renderPage(jokesPath, {
+    tabTitle: "Jokes  | Upper",
+    cssLink: ` <link rel="stylesheet" href="/pages/jokes/jokes.css">`
+});
 
 app.get("/", (req, res) => {
     res.send(frontpagePage);
