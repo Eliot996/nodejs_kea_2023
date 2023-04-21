@@ -108,3 +108,6 @@ dist
 
 # ESLint
 .eslintrc.json
+
+# sqlite
+*.db
