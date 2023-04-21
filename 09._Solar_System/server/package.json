@@ -6,6 +6,7 @@
     },
     "type": "module",
     "scripts": {
-        "create-database": "node ./databases/createDatabase.js"
+        "create-database": "node ./databases/createDatabase.js",
+        "reset-database":  "node ./databases/createDatabase.js delete_mode"
     }
 }
