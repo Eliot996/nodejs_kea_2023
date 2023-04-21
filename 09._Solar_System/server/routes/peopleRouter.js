@@ -10,7 +10,8 @@ router.post("/people", async (req, res) => {
         return res.status(400).send("name is not defined");
     }
     
-    const {lastID} = await db.run(`INSERT INTO people (name, planet_id) VALUES ("${person.name}", ${person.planet_id || 3})`)
+    const {lastID} = await db.run("INSERT INTO people (name, planet_id) VALUES (?, ?)", 
+                                  [person.name, person.planet_id || 3]);
 
     res.send({ id: lastID, name: person.name });
 });
