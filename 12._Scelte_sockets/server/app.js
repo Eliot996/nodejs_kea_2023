@@ -1,6 +1,23 @@
 import express from "express";
 const app = express();
 app.use(express.static("public"));
+app.use(express.json());
+
+import session from "express";
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false}
+}));
+
+import cors from "cors";
+app.use(cors({
+    credentials: true,
+    origin: true
+}));
+
 
 import http from "http";
 const server = http.createServer(app);
@@ -18,6 +35,16 @@ io.on("connection", (socket) => {
     socket.on("a client chose a color", ( data ) => {
         io.emit("a new color just dropped", data)
     });
+});
+
+
+app.get("/users/me", (req, res) => {
+    res.send({ data: req.session.username });
+});
+
+app.post("/register", (req, res) => {
+    req.session.username = req.body.username;
+    res.send({ data: req.body.username });
 });
 
 
