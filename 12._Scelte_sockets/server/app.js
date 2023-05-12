@@ -6,11 +6,18 @@ import http from "http";
 const server = http.createServer(app);
 
 import { Server } from "socket.io";
-const io = new Server(server);
+const io = new Server(server, {
+    cors: {
+        origin: "*",
+        methods: ["*"]
+    }
+});
 
 
 io.on("connection", (socket) => {
-
+    socket.on("a client chose a color", ( data ) => {
+        io.emit("a new color just dropped", data)
+    });
 });
 
 
