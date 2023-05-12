@@ -9,13 +9,22 @@
 
     <h3>Pick a color</h3>
     
-    <input id="colorInput" type="color"> 
+    <input id="color-input" type="color"> 
+    <button onclick="sendColor()">Send the color</button>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io(); // import from socket.io.js, and since it is from the same origin, we don't need to specify it in io()
+        const colorPicker = document.getElementById("color-input");
 
-        socket.emit("ready event", { data: "I am ready" });
+        function sendColor() {
+            socket.emit("color choice", { data: colorPicker.value });
+        }
+
+        socket.on("a color was chosen", (data) => {
+            document.body.style.backgroundColor = data.data;
+        });
+
     </script>
 </body>
 </html>
