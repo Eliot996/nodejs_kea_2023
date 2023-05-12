@@ -21,7 +21,7 @@ io.on("connection", (socket) => {
         // broadcast to all but the socket itself
         // socket.broadcast.emit("a color was chosen", { data: data} );
         
-        // sending to all in namespace
+        // sends to all in io namespace
         io.emit("a color was chosen", { data: data})
     });
 });
