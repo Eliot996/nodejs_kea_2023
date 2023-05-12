@@ -11,6 +11,10 @@ const io = new Server(server);
 
 io.on("connection", (socket) => {
     console.log("A client has connected", socket.id);
+
+    socket.on("ready event", (data) => {
+        console.log("From the ready event: ", data.data);
+    });
 });
 
 
