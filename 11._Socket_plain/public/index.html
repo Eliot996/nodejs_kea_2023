@@ -13,7 +13,9 @@
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
-        const socket = io(); // import from socket.io.js
+        const socket = io(); // import from socket.io.js, and since it is from the same origin, we don't need to specify it in io()
+
+        socket.emit("ready event", { data: "I am ready" });
     </script>
 </body>
 </html>
