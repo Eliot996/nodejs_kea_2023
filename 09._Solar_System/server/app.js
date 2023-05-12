@@ -1,6 +1,12 @@
 import express  from "express";
 const app = express();
 
+import cors from "cors";
+app.use(cors({
+    credentials: true,
+    origin: true
+}));
+
 app.use(express.json())
 
 import planetsRouter from "./routes/planetsRouter.js";
